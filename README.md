@@ -37,7 +37,7 @@
 │   ├── single.php     // 普通文章页
 │   └── style.css     // 主题样式表
 ├── class.php     // 主题后台设置类
-├── mandy_ini.php     // 插件声明文件
+├── mandy.php     // 插件声明文件
 ├── Mobile_Detect.php     // 手机判断文件
 ├── option.php     // 后台设置配置文件
 ├── README.md     // 帮助文档
