@@ -27,7 +27,7 @@ require_once 'Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
  function mandy_phone_switching_primary(){
-	return '../plugins/mandy/mandy_main';
+	return '../plugins/'.str_replace("/mandy.php","",plugin_basename(__FILE__)).'/mandy_main';
 }
  if (ma_get_option('sw_mobi','mandy_basics','') == 't') {
 if ($_SERVER['SERVER_NAME'] == ma_get_option( 'mobi', 'mandy_basics', '' )) {
