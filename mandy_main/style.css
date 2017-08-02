@@ -949,11 +949,13 @@ span.cat_links a {
 .js .search {
     pointer-events: none;
     opacity: 0;
+    display: none;
     transition: opacity 0.6s;
 }
 
 .js .search--open {
     pointer-events: auto;
+    display: flex;
     opacity: 1;
 }
 
