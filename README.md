@@ -10,7 +10,8 @@
 ### 环境依赖
 ###### PHP 5.2+ (7.1 没试过)
 ###### WordPress 4.0+ （兼容最新4.8版本）
-
+### 视频教程 （安装+有字库+域名解析）
+<a href="https://v.qq.com/x/page/q05331qnfb1.html">腾讯视频 720P</a>
 ### 巨人肩膀上
 ##### <a href="https://github.com/amazeui/amazeui">Amaze UI</a>
 ##### <a href="https://github.com/jquery/jquery">jQuery</a>
