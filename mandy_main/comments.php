@@ -1,10 +1,7 @@
 <?php
 /**
 * Mandy 移动端主题-评论
-* puma_comment
-* @author      Qinnek<qinnek@163.com>
-* @version     2.0
-* @since        1.0
+* By puma_comment
 */
 if ( post_password_required() )
     return;

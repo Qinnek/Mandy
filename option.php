@@ -1,9 +1,8 @@
 <?php
 /**
- * WordPress settings API demo class
- *
- * @author Tareq Hasan
- */
+* Mandy 移动端主题-后台设置 option
+* https://tareq.co/
+*/
 if ( !class_exists('mandy_Settings_API_Test' ) ):
 class mandy_Settings_API_Test {
 
@@ -294,10 +293,20 @@ class mandy_Settings_API_Test {
               array(
                         'name'    => 'top_color',
                         'label'   => __( '主题配色', 'mandy' ),
-                        'desc'    => __( '别选白色', 'mandy' ),
+                        'desc'    => __( '如果选了白色，请勾选下面的选项，否则将无法显示', 'mandy' ),
                         'type'    => 'color',
                         'default' => '#000'
                     ),
+              array(
+                         'name'    => 'word_color_turn',
+                         'label'   => __( '文字变黑', 'mandy' ),
+                         'desc'    => __( '黑配黑白显示', 'mandy' ),
+                         'type'    => 'select',
+                         'options' => array(
+                             'yes' => '打开',
+                             'no'  => '关闭'
+                         )
+                     ),
                 array(
                     'name'    => 'style_yzk',
                     'label'   => __( '头部标题-有字库字体Class', 'mandy' ),

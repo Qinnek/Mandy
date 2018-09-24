@@ -11,46 +11,40 @@ function none_menu () {
 	echo '<ul class="none_menu"><li><a href="'.home_url().'/wp-admin/nav-menus.php">请到后台设置菜单</a></li></ul>';
 }
 //发布日期 BY 大发
-function time_ago( $from, $to = '' ) {
-    if ( empty( $to ) ) {
-        $to = time();
-    }
-    $diff = (int) abs( $to - $from );
-
-    if ( $diff < 60 ) {
-        $mins = round( $diff / 60 );
-        if ( $mins <= 1 )
+add_filter('the_time','time_ago');
+function time_ago(){
+    global $post ;
+    $to = time();
+    $from = get_the_time('U') ;
+    $diff = (int) abs($to - $from);
+    if ($diff <= 3600) {
+        $mins = round($diff / 60);
+        if ($mins <= 1) {
             $mins = 1;
-        /* translators: min=minute */
-        $since = $mins.' 分钟';
-    } elseif ( $diff < 60 * 60* 24 && $diff >= 60 * 60 ) {
-        $hours = round( $diff / ( 60*60 ) );
-        if ( $hours <= 1 )
-            $hours = 1;
-        $since = $hours.' 小时';
-    } elseif ( $diff < 60 * 60 * 24 * 7 && $diff >= 60 * 60 * 24 ) {
-        $days = round( $diff / ( 60 * 60 * 24 ) );
-        if ( $days <= 1 )
-            $days = 1;
-        $since = $days. ' 天';
-    } elseif ( $diff < 30 * 60 * 60 * 24 && $diff >= 60 * 60 * 24 * 7 ) {
-        $weeks = round( $diff / ( 60 * 60 * 24 * 7 ) );
-        if ( $weeks <= 1 )
-            $weeks = 1;
-        $since = $weeks . ' 周';
-    } elseif ( $diff < 60 * 60 * 24 * 365  && $diff >= 30 * 60 * 60 * 24 ) {
-        $months = round( $diff / ( 30 * 60*60*24 ) );
-        if ( $months <= 1 )
-            $months = 1;
-        $since = $months .' 月';
-    } elseif ( $diff >= 60 * 60 * 24 * 365 ) {
-        $years = round( $diff / (60 * 60 * 24 * 365) );
-        if ( $years <= 1 )
-            $years = 1;
-        $since = $years .' 年';
+        }
+        $time = sprintf('%s 分钟前', $mins);
     }
-
-    return $since.'前';
+    elseif (($diff <= 86400) && ($diff > 3600)) {
+        $hours = round($diff / 3600);
+        if ($hours <= 1) {
+            $hours = 1;
+        }
+        $time = sprintf('%s 小时前', $hours);
+    }
+    elseif ($diff >= 86400) {
+        $days = round($diff / 86400);
+        if ($days <= 1) {
+            $days = 1;
+            $time = sprintf('%s 天前', $days);
+        }
+        elseif( $days > 29){
+            $time = get_the_time(get_option('date_format'));
+        }
+        else{
+            $time = sprintf('%s 天前', $days);
+        }
+    }
+    return $time;
 }
 //禁用谷歌字体 By WP大学
 add_filter( 'gettext_with_context', 'wpdx_disable_open_sans', 888, 4 );

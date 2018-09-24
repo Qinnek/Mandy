@@ -1,10 +1,7 @@
 <?php
 /**
 * Mandy 移动端主题-设备判断
-*
-* @author      Qinnek<qinnek@163.com>
-* @version     2.0
-* @since        1.0
+* http://mobiledetect.net/
 */
 class Mobile_Detect
 {

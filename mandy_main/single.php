@@ -1,10 +1,6 @@
 <?php
 /**
 * Mandy 移动端主题-文章页
-*
-* @author      Qinnek<qinnek@163.com>
-* @version     2.0
-* @since        1.0
 */
  get_header(); ?>
      <!--content-->
@@ -17,7 +13,7 @@
 
       <?php if (has_post_thumbnail()) { ?>
         <a id="banner" class="banner-page lazy" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-original="<?php $medium_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium'); echo $medium_image_url[0]; ?>">
-          <h1 class="banner-title">
+          <h1 class="banner-title" style="font-size: x-large;">
             <?php the_title(); ?>
           </h1>
        </a>
@@ -42,8 +38,14 @@
             </div>
         </div>
         <ul class="am-pagination">
-          <li class="am-pagination-prev"><?php previous_post_link( '%link', '&larr; ' . '%title' ); ?></li>
-          <li class="am-pagination-next"><?php next_post_link( '%link', '%title' . ' &rarr;' ); ?></li>
+            <li class="am-pagination-prev">
+              <?php previous_post_link( '%link','<i class="am-danger am-icon-arrow-circle-o-left"></i>
+'.'%title' ); ?>
+            </li>
+          <li class="am-pagination-next">
+            <?php next_post_link( '%link', '<i class="am-danger am-icon-arrow-circle-o-right"></i>
+'.'%title'); ?>
+          </li>
         </ul>
 </div>
 

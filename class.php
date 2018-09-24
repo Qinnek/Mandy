@@ -1,10 +1,7 @@
 <?php
 /**
-* Mandy 移动端主题-后台设置
-*
-* @author      Qinnek<qinnek@163.com>
-* @version     2.0
-* @since        1.0
+* Mandy 移动端主题-后台设置 Class
+* https://tareq.co/
 */
 if ( !class_exists( 'mandy_Settings_API' ) ):
 class mandy_Settings_API {
@@ -451,7 +448,7 @@ class mandy_Settings_API {
      * Shows all the settings section labels as tab
      */
     function show_navigation() {
-        $html = '<h2>Mandy <small>3.0 版本</small> <a href="http://xlyxu.cn" target="_blank">凌云</a> - <a href="https://www.mandy.gq" target="_blank">主题说明页</a></h2><h2 class="nav-tab-wrapper">';
+        $html = '<h2>Mandy <small>3.5 版本</small> <a href="http://xlyxu.cn" target="_blank">凌云</a> - <a href="https://github.com/Qinnek/Mandy" target="_blank">主题说明页</a></h2><h2 class="nav-tab-wrapper">';
 
         foreach ( $this->settings_sections as $tab ) {
             $html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );

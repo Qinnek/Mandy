@@ -25,31 +25,50 @@
 		<link type="text/css" rel="stylesheet" href="//cdn.bootcss.com/jQuery.mmenu/5.5.3/core/css/jquery.mmenu.css" />
     <?php if (ma_get_option( 'top_selectbox', 'mandy_basics', '' ) == 'hdp') {?><link type="text/css" rel="stylesheet" href="//cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css"><?php } ?>
     <style>
-      <?php $site_color = ma_get_option( 'top_color', 'mandy_style', '#000' ); ?>
+      <?php
+      $site_color = ma_get_option( 'top_color', 'mandy_style', '#000' ); ?>
   		.ma_list_tag { background-color: <?php echo $site_color ?>;}
   		span.cat_links a { background-color: <?php echo $site_color ?>;}
+      .arctips {color: <?php echo $site_color ?> ;}
   		.reply .comment-reply-link,.am-btn-secondary{ background-color: <?php echo $site_color ?> ;}
   		.form-submit .submit {border: 2px solid <?php echo $site_color ?>;color: <?php echo $site_color ?>;}
   		.am-slider-d2 .am-slider-more { background-color: <?php echo $site_color ?>;}
       .header p {font-size: <?php echo ma_get_option( 'style_yzk_size', 'mandy_style', '' ); ?>}
-  		 .header, .footer{
-  		 	 <?php wp_reset_query(); if (is_home() || is_front_page() || has_post_thumbnail()) { ?>
+      <?php if (ma_get_option( 'word_color_turn', 'mandy_style', '' ) == 'yes') {?>
+        .ma_list_tag a,.form-submit .submit,.reply .comment-reply-link,.arctips {
+            color: #333;
+        }
+      <?php } ?>
+
+  		 	<?php wp_reset_query();
+        $wordturn = ma_get_option( 'word_color_turn', 'mandy_style', '' );
+        if (is_home() || has_post_thumbnail() && is_single()) { ?>
+        .header, .footer{
   			position: absolute;
-  		 	background: -moz-linear-gradient(bottom, rgba(19,20,22,0) 0%, #21292C 100%);
-  		 	background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, rgba(19,20,22,0)), color-stop(100%, #21292C));
-  		 	background: -webkit-linear-gradient(bottom, rgba(19,20,22,0) 0%, #21292C 100%);
-  		 	background: -o-linear-gradient(top, rgba(19,20,22,0) 0%, #21292C 100%);
-  		 	background: -ms-linear-gradient(top, rgba(19,20,22,0) 0%, #21292C 100%);
-  		 	background: linear-gradient(to top, rgba(19,20,22,0) 0%, #21292C 100%);
-  			<?php	} else { ?>
-  			position:static;
-  			background: <?php echo $site_color ?>;
-  			<?php	} ?>
-        <?php if ($paged && $paged > 1 || is_search() || is_author() || is_category() || is_404()) { ?>
-          position:static;
-    			background: <?php echo $site_color ?>;
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, rgba(0,0,0,.43)), color-stop(100%, rgba(0,0,0,0.3)));
+        background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,.43) 100%);
+        background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,.43) 100%);
+        }
+        a.menu2 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/search_icon_svg.php)}
+        a.menu1 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/menu_icon_svg.php)}
+  			<?php	}else  { ?>
+
+        <?php if ($wordturn === "yes"){ ?>
+        .header, .footer{
+        color: inherit;
+        border-bottom: 1px solid #dedede;
+        }
+        a.menu2 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/search_icon_svg.php?color=black)}
+        a.menu1 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/menu_icon_svg.php?color=black)}
+        <?php }else { ?>
+        a.menu2 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/search_icon_svg.php)}
+        a.menu1 {background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/menu_icon_svg.php)}
+        <?php } ?>
+        .header, .footer{
+        position:static;
+  			background: <?php echo $site_color?>;
+        }
         <?php  } ?>
-  		 }
   		.am-btn-secondary { border-color: #FFF;}
 		</style>
     <?php echo ma_get_option( 'head_code', 'mandy_links', '' ) ?>
@@ -75,3 +94,4 @@
             'items_wrap' => '<ul class="%2$s">%3$s</ul>'
           ,)); ?>
 				</nav>
+        <div class="pjax_main">

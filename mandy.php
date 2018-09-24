@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name:Mandy 移动端主题
-Plugin URI:http://www.xlyxu.cn/mandy
-Description:轻巧、灵动
-Version:3.0
+Plugin URI:http://www.github.com/Qinnek/Mandy
+Description:这个主题不赚钱，交朋友
+Version:3.5
 Author:Qinnek
 Author URI:http://www.xlyxu.cn/
 */
-define('MANDY_VERSION', '2.0.0');
+define('MANDY_VERSION', '3.5');
 define('MANDY_URL', plugin_dir_path(__FILE__));
 // 移除HTML过滤
 remove_filter( 'pre_term_description', 'wp_filter_kses' );
@@ -29,7 +29,7 @@ $detect = new Mobile_Detect;
  function mandy_phone_switching_primary(){
 	return '../plugins/'.str_replace("/mandy.php","",plugin_basename(__FILE__)).'/mandy_main';
 }
- if (ma_get_option('sw_mobi','mandy_basics','') == 't') {
+if (ma_get_option('sw_mobi','mandy_basics','') == 't') {
 if ($_SERVER['SERVER_NAME'] == ma_get_option( 'mobi', 'mandy_basics', '' )) {
 	define('WP_HOME' ,'http://' . ma_get_option( 'mobi', 'mandy_basics', '' ));
 	define('WP_SITEURL',WP_HOME);
@@ -40,7 +40,6 @@ if ($_SERVER['SERVER_NAME'] == ma_get_option( 'mobi', 'mandy_basics', '' )) {
 	header('Location: '. 'http://' . ma_get_option( 'mobi', 'mandy_basics', '' ) . $_SERVER["REQUEST_URI"]);
 	die();
 }else{
-
 	if (!empty($_GET['m_action'])) {
 		if ($_GET['m_action'] == 'nomobile') {
 			setcookie('wordpress_mobile_domain_disable', 1, time()+86400, '/', bloginfo('url'), false);
@@ -54,19 +53,19 @@ if ($_SERVER['SERVER_NAME'] == ma_get_option( 'mobi', 'mandy_basics', '' )) {
 			}
 		}
 	}
-
-		if ( $detect->isMobile() ) {
+		if ($detect->isMobile() ) {
 			if (!isset($_COOKIE['wordpress_mobile_domain_disable'])) {
 				header ('location:http://' . ma_get_option( 'mobi', 'mandy_basics', '' ) . $_SERVER['REQUEST_URI']);
 				die();
 			}
 		}
-} }else {
-	if ( $detect->isMobile() ) {
-			add_filter( 'template', 'mandy_phone_switching_primary' );
-	add_filter( 'stylesheet', 'mandy_phone_switching_primary' );
-		}
 	}
+}else {
+	if ($detect->isMobile()) {
+		add_filter( 'template', 'mandy_phone_switching_primary' );
+		add_filter( 'stylesheet', 'mandy_phone_switching_primary' );
+	}
+}
 
 
 function ma_get_option( $option, $section, $default = '' ) {
@@ -84,9 +83,9 @@ $new_meta_boxes =
 array(
     "radio" => array(
         "name" => "_meta_radio",
-        "std" => 1,
+        "std" => 2,
         "title" => "文章类型样式",
-        "buttons" => array('首页大图','首页小图'),
+        "buttons" => array(' 首页大图 ',' 首页小图'),
         "type"=>"radio"),
 
 );
@@ -120,7 +119,7 @@ function ma_create_meta_box() {
     global $theme_name;
 
     if ( function_exists('add_meta_box') ) {
-        add_meta_box( 'new-meta-boxes', '[Mandy] 仅对移动端生效', 'new_meta_boxes', 'post', 'normal', 'high' );
+        add_meta_box( 'new-meta-boxes', ' [Mandy] 仅对移动端生效', 'new_meta_boxes', 'post', 'normal', 'high' );
     }
 }
 function ma_save_postdata( $post_id ) {

@@ -1,9 +1,5 @@
 /**
 * Mandy 移动端主题-样式表
-*
-* @author      Qinnek<qinnek@163.com>
-* @version     2.0
-* @since        1.0
 */
 
 .entry-name {
@@ -37,6 +33,7 @@ nav:not(.mm-menu) {
     text-align: center;
 }
 
+
 footer img {
     max-width: 100%;
     height: auto;
@@ -45,7 +42,8 @@ footer img {
 .header.fixed {
     position: fixed;
     top: 0;
-    left: 0;
+    -moz-transition: all .5s ease-in;
+    display: none;
 }
 
 .footer.fixed {
@@ -75,13 +73,6 @@ footer img {
     position: absolute;
     top: 5px;
     left: 10px;
-}
-
-a.menu1 {
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC);
-}
-a.menu2 {
-		background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAQAAABu4E3oAAAA5ElEQVQ4y6WUWRWDMBBFIwEJSMABcVAcNBLqIHHQOgAH4KA4KBLqABzcfjSEJQmHZf4ykzvnzfCIENeDhJw7N/J91yU1U/SUpNvd59en0HHg4y61VDR07lyGkcaWXyQul7qs8QFlS8qrVLaynolvpJcQghaAaplMARgmSastAvTL5CPQx9eQzVMmLmsmTV5ETgjLAgN6yzmy5CaowX3KwgOMrWR+r9FRemGYyagqZMvOWb5Go3mvHB2EWrZDhUZVM8v/fwNJxuDOz9hSJQZDMU61gNTe92CEurB149ARwELJ6WfrB7CVk4sFPC4GAAAAAElFTkSuQmCC);
 }
 
 .content {
@@ -141,6 +132,7 @@ a.menu2 {
     width: 100%;
     min-height: 1830px;
     box-sizing: border-box;
+    z-index: 10000;
 }
 
 .app-meta {
@@ -298,8 +290,7 @@ ol, ul {
 
 .arctips {
     padding: 0 0.5em;
-    margin: 11px 0.2em 11px;
-    color: #444;
+    margin: 20px 0 0px 0.2em;
     font-size: 24px;
 }
 
@@ -336,10 +327,19 @@ ul.am-pagination {
     margin: 0 14px 0 14px;
 }
 
+ul.am-pagination li {
+  width: 100%;
+  height: 90px;
+  background-size: cover;
+}
 
 /* 文章列表 */
 .am-list-news-default {
     margin-top: 0;
+}
+
+.am-list-news-default .am-list .am-list-item-thumb-right .am-list-thumb {
+    padding: 0 1rem;
 }
 
 .ma_content_main .am-list>li {
@@ -357,20 +357,60 @@ ul.am-pagination {
 }
 
 .ma_content_main .am-list-item-hd a {
-    color: #222;
-    font-weight: bold;
+    color: #000;
 }
 
 .ma_list_one_info_name a {
     color: #757575;
 }
 
+.ma_list_one_topicon {
+    margin: 0 auto;
+    width: 20px;
+    font-size: 20px;
+    color: #dd514c;
+}
+
 .ma_list_one_bt {
     font-size: 18px;
 }
 
+.am-list-news .am-list-item-hd {
+    margin: 0 0 8px 15px;
+}
+
+.am-paragraph-default p {
+    font-size: 16px;
+}
+
+.am-pagination li a:last-of-type {
+    background: inherit;
+    color: #000000;
+    border: 0;
+    font-size: larger;
+}
+
+.am-pagination .am-pagination-prev a:first-of-type {
+    color: #000000;
+    border: 0;
+    font-size: larger;
+    width: inherit;
+}
+.am-pagination p {
+    width: 80%;
+    float: right;
+    margin: 0;
+}
+
 .ma_list_one_text p {
     font-size: 14px;
+    float: left;
+    margin: 7px 0 0 0;
+    color: #555;
+}
+
+.ma_list_one_text {
+    padding: 0 15px;
 }
 
 .ma_content_main .am-list-news-default  .ma_list_one_info {
@@ -378,6 +418,7 @@ ul.am-pagination {
     clear: both;
     height: 30px;
     margin-bottom: 12px;
+    padding: 0 15px;
 }
 
 .ma_content_main .am-list-news-default  .ma_list_one_info_l {
@@ -467,6 +508,11 @@ ul.am-pagination {
     color: #FFF;
 }
 
+.ma_list_time {
+  float: left;
+  margin-top: 5px;
+}
+
 .ma_content_main .am-list-news-default .ma_list_zt_img {
     width: 100%;
     padding: 8px 0;
@@ -489,6 +535,7 @@ ul.am-pagination {
     width: 100%;
 }
 
+
 .am-list-news-default .am-list .am-list-item-text {
     line-height: 17px;
 }
@@ -498,7 +545,8 @@ ul.am-pagination {
 /* 文章作者 */
 .ma_article_title {
     font-weight: bold;
-    margin: 0;
+    text-align:  center;
+    margin: 10px 0;
 }
 
 .ma_head_block .ma_article_user {
@@ -635,7 +683,6 @@ ul.am-pagination {
     width: 100%;
     background: #fff;
     margin: 0 auto;
-    padding: 0 18px 18px;
     min-height: 1830px;
 }
 
@@ -665,18 +712,17 @@ ul.am-pagination {
 }
 
 .ma_404_text {
-    font-size: xx-large;
+    font-size: 60px;
     color: #dd514c;
-    width: 55px;
     border-bottom: solid;
-    height: 55px;
+    text-align: center;
 }
 
 .ma_404_des {
     font-size: larger;
     color: #b5b5b6;
     text-align: center;
-    margin-top: 12px;
+    margin: 12px;
 }
 
 .ma_404_image {
@@ -698,14 +744,12 @@ ul.am-pagination {
     position: relative;
     display: block;
     border-radius: 2px;
-    width: 100%;
-    height: 0;
     padding-bottom: 50%;
     background-size: cover;
     background-position: center;
     overflow: hidden;
     width: 100%;
-    height: 250px;
+    height: 375px;
     opacity: 1;
     visibility: inherit;
     background-color: rgba(0, 0, 0, 0);
@@ -714,20 +758,25 @@ ul.am-pagination {
     background-repeat: no-repeat;
 }
 
+.banner-list {
+    height: 200px;
+}
+
 .banner-page .banner-title {
     z-index: 10;
     position: absolute;
     bottom: 0;
-    font-size: 2.7rem;
-    line-height: 1.4em;
+    font-size: larger;
+    line-height: 1.25em;
     color: #fff;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, rgba(0,0,0,.3)), color-stop(100%, rgba(0,0,0,0.43)));
     background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.43) 0%, rgba(0,0,0,.3) 100%);
     background: linear-gradient(to top, rgba(0,0,0,0.43) 0%, rgba(0,0,0,.3) 100%);
     width: 100%;
     margin: 0;
-    padding-left: 10px;
+    padding: 10px;
 }
+
 
 .btn3 {
     position: fixed;
@@ -879,16 +928,15 @@ span.cat_links a {
 
 /* Layout for search container */
 .search {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: absolute;
 }
 
 .js .search {
-    z-index: 1000;
+    z-index: 0;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -938,12 +986,15 @@ span.cat_links a {
 /************************/
 
 .js .main-wrap {
-    transition: transform 0.6s;
+    transition: transform 0.4s;
     transition-timing-function: cubic-bezier(0.2,1,0.3,1);
 }
 
 .js .main-wrap--move {
-    transform: scale(0.85)
+    transform: scale(0.9);
+    position: absolute;
+    top: 55px;
+    max-height: 2200px;
 }
 
 .js .search {
@@ -1005,13 +1056,9 @@ span.cat_links a {
     color: #fff;
     width: 100%;
     height: 300px;
-    display: block;
-    line-height: 500px;
     text-align: center;
     font-size: x-large;
     text-shadow: 2px 2px 6px #000;
-}
-
-.largeimg {
-    padding: 0;
+    display:  block;
+    padding-top: 213px;
 }

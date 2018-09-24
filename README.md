@@ -1,4 +1,4 @@
-# Mandy 3.0:star: 
+# Mandy 3.5
 ### 特色
 - 强大后台主题设置
 - 一体化插件
@@ -6,9 +6,11 @@
 - 兼容 https
 - 广告、幻灯片后台设置
 
-![mandy](https://i.loli.net/2017/08/01/597ff12b1f9a8.png)
+![mandy](https://i.loli.net/2018/09/24/5ba88d4968b97.jpg)
+[![Jietu20180924-151123.jpg](https://i.loli.net/2018/09/24/5ba88e2872c14.jpg)](https://i.loli.net/2018/09/24/5ba88e2872c14.jpg)
+
 ### 环境依赖
-###### PHP 5.2+ (7.1 没试过)
+###### PHP 5.2+ (兼容7.1)
 ###### WordPress 4.0+ （兼容最新4.8版本）
 ### 视频教程 （安装+有字库+域名解析）
 <a href="https://v.qq.com/x/page/q05331qnfb1.html">腾讯视频 720P</a>
@@ -33,6 +35,8 @@
 │   ├── index.php     // 首页
 │   ├── list.php     // 文章列表
 │   ├── main.js     // 主题JS代码
+│   ├── menu_icon_svg.php     // 菜单icon svg
+│   ├── search_icon_svg.php    // 搜索icon svg
 │   ├── page.php     // 页面
 │   ├── search.php     // 搜索页
 │   ├── single.php     // 普通文章页
@@ -46,7 +50,15 @@
 
 
 ### 版本更新说明
-- v3.0 
+- v3.5
+  - 修复搜索
+  - 添加白底黑字导航功能
+  - 优化样式
+  - 精简代码
+  - 优化导航栏显示方案
+  - 优化列表展示
+  - 添加导航置顶
+- v3.0
   - 更换幻灯片组件
   - 更换搜索框样式
   - 添加幻灯片效果设置
@@ -58,5 +70,4 @@
   - 修复若干BUG
   - 修复https兼容问题
   - 删除多余代码
-- v2.0 
-
+- v2.0
